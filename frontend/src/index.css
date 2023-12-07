@@ -1,0 +1,19 @@
+table {
+  margin-top: 25px;
+}
+table,
+th,
+td {
+  border: 2px solid rgb(96, 88, 88);
+  border-collapse: collapse;
+}
+th {
+  background-color: #96d4d4;
+  padding: 10px;
+}
+td {
+  padding: 10px;
+}
+tr:nth-child(even) {
+  background-color: gainsboro;
+}

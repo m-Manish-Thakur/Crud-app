@@ -18,6 +18,8 @@ app.get("/", (req, res) => {
   res.json("Hello");
 });
 
+app.use("/api", Student);
+
 app.listen(8000, () => {
   console.log("Server Started");
   mongoose

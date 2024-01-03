@@ -4,7 +4,7 @@ const Students = require("../Models/Students");
 
 router.use(express.json());
 
-router.post("/", async (req, res) => {
+router.post("/students", async (req, res) => {
   try {
     const data = req.body;
     const newData = await Students.create(data);
@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
     res.send(500).json({ msg: "Internal Error" });
   }
 });
-router.delete("/:id", async (req, res) => {
+router.delete("/students/:id", async (req, res) => {
   try {
     console.log(req.params.id);
     await Students.findByIdAndDelete(req.params.id);
@@ -25,7 +25,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/students", async (req, res) => {
   const data = await Students.find({});
   res.json(data);
 });

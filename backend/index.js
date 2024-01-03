@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 app.listen(8000, () => {
   console.log("Server Started");
   mongoose
-    .connect(process.env.MongoURL)
+    .connect("mongodb+srv://manishthakur231690:CrudApp231690@crud-app.8lq7npz.mongodb.net/?retryWrites=true&w=majority")
     .then(() => {
       console.log("Database Connected");
     })

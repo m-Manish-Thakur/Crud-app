@@ -26,8 +26,13 @@ router.delete("/students/:id", async (req, res) => {
 });
 
 router.get("/students", async (req, res) => {
-  const data = await Students.find({});
-  res.json(data);
+  try {
+    const data = await Students.find({});
+    res.json(data);
+  } catch (error) {
+    console.error("Error fetching students:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 module.exports = router;

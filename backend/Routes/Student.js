@@ -9,10 +9,19 @@ router.post("/", async (req, res) => {
     const data = req.body;
     const newData = await Students.create(data);
     console.log(newData);
-    res.send(201).json(newData);
+    res.json(newData);
   } catch (err) {
     console.log(err);
     res.send(500).json({ msg: "Internal Error" });
+  }
+});
+router.delete("/:id", async (req, res) => {
+  try {
+    console.log(req.params.id);
+    await Students.findByIdAndDelete(req.params.id);
+    res.status(204).end();
+  } catch (err) {
+    console.log(err);
   }
 });
 

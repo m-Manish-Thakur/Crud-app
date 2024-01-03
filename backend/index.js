@@ -3,8 +3,6 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-
-const port = process.env.PORT || 3000;
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -16,9 +14,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Use Routes
-app.use("/", Student);
+app.get("/", (req, res) => {
+  res.json("Hello");
+});
 
-app.listen(port, () => {
+app.listen(8000, () => {
   console.log("Server Started");
   mongoose
     .connect(process.env.MongoURL)
